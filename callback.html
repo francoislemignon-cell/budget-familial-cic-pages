@@ -19,7 +19,7 @@
  if(!code){document.getElementById("status").textContent="Aucun code reçu. Cette page ne doit être utilisée qu'après une autorisation bancaire.";return;}
  document.getElementById("status").textContent="Autorisation terminée. Vous pouvez revenir au programme local.";
  document.getElementById("result").hidden=false;
- document.getElementById("code").textContent=code;
- document.getElementById("copy").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(code);document.getElementById("copy").textContent="Code copié";}catch(e){document.getElementById("copy").textContent="Sélectionnez et copiez le code affiché";}});
+ document.getElementById("code").textContent=(state || "")+"|"+code;
+ document.getElementById("copy").addEventListener("click",async()=>{try{await navigator.clipboard.writeText((state || "")+"|"+code);document.getElementById("copy").textContent="Code copié";}catch(e){document.getElementById("copy").textContent="Sélectionnez et copiez le code affiché";}});
 })();
 </script></body></html>
